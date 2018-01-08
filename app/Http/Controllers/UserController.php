@@ -26,8 +26,12 @@ class UserController extends Controller
         return $this->userService->createNewUser($request);
     }
 
-    public function update($id, Request $request){
-        return $this->userService->updateUser($id, $request);
+    public function updateAllDatas($id, Request $request){
+        return $this->userService->updateAllDatasUser($id, $request);
+    }
+
+    public function updateSingleData($id, Request $request){
+        return $this->userService->updateSingleDataUser($id, $request);
     }
 
     public function destroy($id){

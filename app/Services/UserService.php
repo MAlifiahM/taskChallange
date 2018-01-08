@@ -12,28 +12,35 @@ class UserService{
     }
 
     public function createNewUser(Request $request){
-        dd($request);
         $user = $request->all();
-        User::create($user);
-        return response()->json(['message' => 'user created'], 201);
+        $user['password'] = bcrypt($request->password);
+        $newUser = User::create($user);
+        return response()->json([$newUser], 201);
     }
 
-    public function updateUser($id, Request $request){
+    public function updateAllDatasUser($id, Request $request){
         $user = User::find($id);
         $data = $request->all();
         $user->name = $data['name'];
+        $user->password = $data['password'] = bcrypt($request->password);
         $user->username = $data['username'];
         $user->email = $data['email'];
         $user->address = $data['address'];
         $user->website = $data['website'];
         $user->company = $data['company']; 
         $user->save();
-        return response()->json(['message' => 'user updated'], 200);
+        return response()->json([$user], 200);
+    }
+
+    public function updateSingleDataUser($id, Request $request){
+        $user = User::find($id)->fill(request()->all()); 
+        $user['password'] = bcrypt($request->password); 
+        $user->save();
+        return response()->json([$user], 200);
     }
 
     public function deleteUser($id){
         $user = User::find($id);
         $user->delete();
-        return response()->json(['message' => 'user deleted'], 204);
     }
 }
