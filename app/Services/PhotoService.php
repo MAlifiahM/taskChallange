@@ -37,5 +37,6 @@ class PhotoService{
     public function deletePhoto($id){
         $photo = Photo::find($id);
         $photo->delete();
+        return response(json_encode([], JSON_FORCE_OBJECT), 200);    
     }
 }

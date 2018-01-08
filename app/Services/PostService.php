@@ -36,5 +36,6 @@ class PostService{
     public function deletePost($id){
         $post = Post::find($id);
         $post->delete();
+        return response(json_encode([], JSON_FORCE_OBJECT), 200);
     }
 }

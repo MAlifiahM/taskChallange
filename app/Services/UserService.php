@@ -22,7 +22,6 @@ class UserService{
         $user = User::find($id);
         $data = $request->all();
         $user->name = $data['name'];
-        $user->password = $data['password'] = bcrypt($request->password);
         $user->username = $data['username'];
         $user->email = $data['email'];
         $user->address = $data['address'];
@@ -34,7 +33,6 @@ class UserService{
 
     public function updateSingleDataUser($id, Request $request){
         $user = User::find($id)->fill(request()->all()); 
-        $user['password'] = bcrypt($request->password); 
         $user->save();
         return response()->json([$user], 200);
     }
@@ -42,5 +40,6 @@ class UserService{
     public function deleteUser($id){
         $user = User::find($id);
         $user->delete();
+        return response(json_encode([], JSON_FORCE_OBJECT), 200);
     }
 }

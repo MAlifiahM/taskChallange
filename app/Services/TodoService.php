@@ -36,5 +36,6 @@ class TodoService{
     public function deleteTodo($id){
         $todo = Todo::find($id);
         $todo->delete();
+        return response(json_encode([], JSON_FORCE_OBJECT), 200);
     }
 }

@@ -37,5 +37,6 @@ class CommentService{
     public function deleteComment($id){
         $comment = Comment::find($id);
         $comment->delete();
+        return response(json_encode([], JSON_FORCE_OBJECT), 200);
     }
 }

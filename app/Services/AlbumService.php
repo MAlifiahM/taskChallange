@@ -35,5 +35,6 @@ class AlbumService{
     public function deleteAlbum($id){
         $album = Album::find($id);
         $album->delete();
+        return response(json_encode([], JSON_FORCE_OBJECT), 200);
     }
 }
