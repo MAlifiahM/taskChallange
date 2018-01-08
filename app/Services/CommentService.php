@@ -13,11 +13,11 @@ class CommentService{
 
     public function createNewComment(Request $request){
         $comment = $request->all();
-        Comment::create($comment);
-        return response()->json(['message' => 'comment created'], 201);
+        $newComment = Comment::create($comment);
+        return response()->json([$newComment], 201);
     }
 
-    public function updateComment($id, Request $request){
+    public function updateAllDatasComment($id, Request $request){
         $comment = Comment::find($id);
         $data = $request->all();
         $comment->postId = $data['postId'];
@@ -25,12 +25,17 @@ class CommentService{
         $comment->email = $data['email'];        
         $comment->body = $data['body'];
         $comment->save();
-        return response()->json(['message' => 'comment updated'], 200);
+        return response()->json([$comment], 200);
+    }
+
+    public function updateSingleDataComment($id, Request $request){
+        $comment = Comment::find($id)->fill(request()->all()); 
+        $comment->save();
+        return response()->json([$comment], 200);
     }
 
     public function deleteComment($id){
         $comment = Comment::find($id);
         $comment->delete();
-        return response()->json(['message' => 'comment deleted'], 204);
     }
 }
