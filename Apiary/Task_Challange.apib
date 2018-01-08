@@ -1,0 +1,777 @@
+FORMAT: 1A
+HOST: http://localhost:8000
+
+# Task Challenge
+
+This is a task challenge from Mr.Guf
+
+# Group Todo
+
+- Todo is a API to retrive, create, update all datas in todo, update a data in todo, delete a todo
+
+**Todo Attributes**
+- userId : (Number) - unique indentifier
+- id : (Number) - unique indentifier
+- title : (string)
+- completed : (boolean)
+
+## Todo Collection [/todos]
+
+### Retrieve All Todo [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todo, Todo])
+
+### Create a New Todo [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (TodoRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (Todo)
+
+### Retrieve Todo by UserId [GET /todos/{?userId}]
+
++ Parameters
+
+    + userId (Number, optional, `1`) - Represent the user id
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Todo)
+    
+## Single Todo [/todos/{id}]
+
++ Parameters
+    
+    + id (Number, optional, `1`) - Represent the id
+
+### Retrieve Todo by TodoId [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Todo)
+
+### Update All Datas in Todo [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (TodoRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (Todo)
+    
+### Update a Data in Todo [PATCH]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+    
+    + Attributes (TodoRequest)
+
++ Response 200 (application/json)
+    
+    + Attributes (Todo)
+    
+### Delete a Todo [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + body
+
+            {}
+    + body
+
+            {}
+## Data Structures
+
+### TodoRequest
++ `title` : Lorem Ipsum,
++ `completed` : false,
+
+### Todo
++ `userId`: 1,
++ `id`: 1,
++ `title`: Lorem Ipsum,
++ `completed`: false
+
+# Group Post
+
+- Post is a API to retrive, create, update all datas in post, update a data in post, delete a post
+
+**Post Attributes**
+- postId : (Number) - unique indentifier
+- id : (Number) - unique indentifier
+- title : (string)
+- body : (string)
+
+## Post Collection [/posts]
+
+### Retrieve All Post [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (array[Post, Post])
+
+### Create a New Post [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (PostRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (Post)
+
+### Retrieve Post by UserId [GET /posts/{?userId}]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Parameters
+
+    + userId (Number, optional, `1`) - Represent the author id
+
++ Response 200 (application/json)
+
+    + Attributes (Post)
+    
+## Single Post [/posts/{postId}]
+
++ Parameters
+    
+    + postId (Number, optional, `1`) - Represent the post id
+
+### Retrieve Post by PostId [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Post)
+
+### Update All Datas in Post [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (PostRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (Post)
+    
+### Update a Data in Post [PATCH]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+    
+    + Attributes (PostRequest)
+
++ Response 200 (application/json)
+    
+    + Attributes (Post)
+    
+### DELETE a Post [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + body
+
+            {}
+## Data Structures
+
+### Post
+
++ `userId`: 1,
++ `id`: 2,
++ `title`: Lorem Ipsum,
++ `body`: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat`
+
+### PostRequest
++ `title`: Lorem Ipsum
++ `body` : Lorem ipsum dolor sit amet
+
+# Group Photo
+
+- Photo is a API to retrive, create, update all datas in photo, update a data in photo delete a post
+
+**Photo Attributes**
+- albumId : (Number) - unique indentifier
+- id : (Number) - unique indentifier
+- title : (string)
+- url : (string)
+- thumbnailUrl : (string)
+
+## Photo Collection [/photos]
+
+### Retrieve All Photo [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photo, Photo])
+
+### Create a New Photo [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (PhotoRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (Photo)
+
+### Retrieve Photo by UserId [GET /photos/{?albumId}]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Parameters
+
+    + albumId (Number, optional, `1`) - Represent the album id
+
++ Response 200 (application/json)
+
+    + Attributes (Photo)
+    
+## Single Photo [/photos/{id}]
+
++ Parameters
+    
+    + id (Number, optional, `1`) - Represent the  id
+
+### Retrieve Photo by PhotoId [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Photo)
+
+### Update All Datas in Photo [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (PhotoRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (Photo)
+    
+### Update a Data in Photo [PATCH]
+
++ Request (application/json)
+    
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (PhotoRequest)
+
++ Response 200 (application/json)
+    
+    + Attributes (Photo)
+    
+### DELETE a Photo [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + body
+
+            {}
+## Data Structures
+
+### PhotoRequest
++ `title` : Lorem Ipsum,
++ `url` : `http://placehold.it/600/92c952`,
++ `thumbnailUrl` : `http://placehold.it/150/92c952`
+
+### Photo
++ `albumId`: 1,
++ `id`: 1,
++ `title`: Lorem Ipsum,
++ `url`: `http://placehold.it/600/92c952`,
++ `thumbnailUrl`: `http://placehold.it/150/92c952`
+
+# Group Comment
+
+- Comment is a API to retrive, create, update all datas in comment, update a data in comment, delete a post
+
+**Comment Attributes**
+- postId : (Number) - unique indentifier
+- id : (Number) - unique indentifier
+- name : (string)
+- email : (string)
+- body : (string)
+
+## Comment Collection [/comments]
+
+### Retrieve All Comment [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comment, Comment])
+
+### Create a New Comment [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (CommentRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (Comment)
+
+### Retreive Comment by Id [GET /comments/{?id}]
+
++ Parameters
+
+    + id (Number, optional, `1`) - Represent the id
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Comment)
+    
+## Single Comment [/comments/{postId}]
+
++ Parameters
+    
+    + postId (Number, optional, `1`) - Represent the post id
+
+### Retrieve Comment by CommentId [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Comment)
+
+### Update All Datas in Comment [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (CommentRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (Comment)
+    
+### Update a Data in Comment [PATCH]
+
++ Request (application/json)
+    
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (CommentRequest)
+
++ Response 200 (application/json)
+    
+    + Attributes (Comment)
+    
+### DELETE a Comment [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + body
+
+            {}
+## Data Structures
+
+### CommentRequest
++ `name` : Lorem Ipsum,
++ `email`: `Lorem@Lorem.com`,
++ `body` : Lorem ipsum dolor sit amet,
+
+### Comment
++ `postId`: 1,
++ `id`: 1,
++ `name`: Lorem Ipsum,
++ `email`: `Lorem@Lorem.com`,
++ `body`: `Lorem ipsum dolor sit amet, consectetur adipiscing elit`
+
+# Group Album
+
+- Album is a API to retrive, create, update all datas in album, update a data in album, delete a post
+
+**Album Attributes**
+- userId : (Number) - unique indentifier
+- id : (Number) - unique indentifier
+- title : (string)
+
+## Album Collection [/albums]
+
+### Retrieve All Album [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (array[Album, Album])
+
+### Create a New Album [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (AlbumRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (Album)
+
+### Retrieve Album by UserId [GET /albums/{?userId}]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Parameters
+
+    + userId (Number, optional, `1`) - Represent the author id
+
++ Response 200 (application/json)
+
+    + Attributes (Album)
+    
+## Single Album [/Albums/{id}]
+
++ Parameters
+    
+    + id (Number, optional, `1`) - Represent the  id
+
+### Retrieve Album by AlbumId [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (Album)
+
+### Update All Datas in Album [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (AlbumRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (Album)
+    
+### Update a Data in Album [PATCH]
+
++ Request (application/json)
+    
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (AlbumRequest)
+
++ Response 200 (application/json)
+    
+    + Attributes (Album)
+    
+### DELETE a Album [DELETE]
+
++ Request
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + body
+
+            {}
+## Data Structures
+
+### AlbumRequest
++ `title` : Lorem Ipsum,
+
+### Album
++ `userId`: 1,
++ `id`: 1,
++ `title`: Lorem ipsum
+
+# Group User
+
+- User is a API to retrive, create, update all datas in user, update a data in user, delete a post
+
+**User Attributes**
+- id : (Number) - unique indentifier
+- name : (string)
+- username: (string)
+- email: (string)
+- address: (object) - complete address with geo
+- phone: (string)
+- website: (string)
+- company: (object) - complete with catchPhrase and bs
+
+## User Collection [/users]
+
+### Retrieve All User [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (array[User, User])
+
+### Create a New User [POST]
+
++ Request (application/json)
+
+    + Attributes (UserRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (User)
+
+    
+## Single User [/users/{id}]
+
++ Parameters
+    
+    + id (Number, optional, `1`) - Represent the id
+
+### Retrieve User by UserId [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + Attributes (User)
+
+### Update All Datas in User [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (UserRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (User)
+    
+### Update a Data in User [PATCH]
+
++ Request (application/json)
+    
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
+    + Attributes (UserRequest)
+
++ Response 200 (application/json)
+    
+    + Attributes (User)
+    
+### DELETE a User [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRiODAzNzljYmU5YjJhMjkxZmFhZDdmOWU5ODEyMWE2NzlmOGM5YjFkMTRjYWQ5NjdmMDVmMDY2NGI4NDQzY2RiN2E1OTMzMDNmODQwYzM2In0.eyJhdWQiOiIzIiwianRpIjoiNGI4MDM3OWNiZTliMmEyOTFmYWFkN2Y5ZTk4MTIxYTY3OWY4YzliMWQxNGNhZDk2N2YwNWYwNjY0Yjg0NDNjZGI3YTU5MzMwM2Y4NDBjMzYiLCJpYXQiOjE1MTUxNTYxNzYsIm5iZiI6MTUxNTE1NjE3NiwiZXhwIjoxNTQ2NjkyMTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HyFqI14TJ3YpNKV3J9qIEvCqPMFsC1lLIqoeUc6U0D-rbz4JB5GDgVPZpogFIu1iJeN9B3dM4k18oP75VpltlmXL-MYCrkrrPtpEQHDI97w9UOflWxCgdSNuGwQKmBhAOFM3UxX_FNbAHRJSe-g9riLOFftasooaLjLIpGHuXXYHrPr2mCAP_0A8RK7P_51ucuJOkvsOGVFPSQdtN6F-yp1TJUNdrJ8B4YUuhTjr-UpA6duJV_3d1Il_LWVa_nZXIcvoGc77gvr8-fnl6b5lyy9ooHZqDMUiS_luLJWOnF9iVGWOO2saS1hp32oVLFftYGG85Pn0PsuGKO-9GfzarixE-LZfaGiRmfX5nBe7HfMLVLXEjQFasc7yyStYLObwKexp01YtRTz8Tyo4PjejB313mYcRbaqw7_N0cMzDSmrXv_UwAPjCJuR84txAEXbJ1ti3gGqc1bUMAGHqfvnC7pkLpNGmcTQes5Gx_BS1m9hJnFCHT4GF0KJMGBiQOXJSxp7AVHq0gWMLkVv_YJqg2S2LfTtNOf3_cfUFKkkm71aOlcB9To9EunnBVV-te9Us0_b07Ido_9TtDYWAm4EMdtY535lYxWi6TBperVYrDZ6w5rVmWF7LQAIZDXg8Zdb84Afyz9OA0m1QOOf1zb4Wrn8Z6UkOLVo7KiUbCq7pce8
+
++ Response 200 (application/json)
+
+    + body
+
+            {}
+## Data Structures
+
+### UserRequest
++ `name`: `Leanne Graham`,
++ `username`: `Bret`,
++ `email`: `Sincere@april.biz`,
++ `address`(object)
+    + `street`: `Kulas Light`,
+    + `suite`: `Apt. 556`,
+    + `city`: `Gwenborough`,
+    + `zipcode`: `92998-3874`,
++ `geo`(object)
+    + `lat`: `-37.3159`,
+    + `lng`: `81.1496`,
++ `phone`: `1-770-736-8031 x56442`,
++ `website`: `hildegard.org`,
++ `company`(object)
+    + `name`: `Romaguera-Crona`,
+    + `catchPhrase`: `Multi-layered client-server neural-net`,
+    + `bs`: `harness real-time e-markets`
+
+### User
++ `id`: 1,
++ `name`: `Leanne Graham`,
++ `username`: `Bret`,
++ `email`: `Sincere@april.biz`,
++ `address`(object)
+    + `street`: `Kulas Light`,
+    + `suite`: `Apt. 556`,
+    + `city`: `Gwenborough`,
+    + `zipcode`: `92998-3874`,
++ `geo`(object)
+    + `lat`: `-37.3159`,
+    + `lng`: `81.1496`,
++ `phone`: `1-770-736-8031 x56442`,
++ `website`: `hildegard.org`,
++ `company`(object)
+    `name`: `Romaguera-Crona`,
+    `catchPhrase`: `Multi-layered client-server neural-net`,
+    `bs`: `harness real-time e-markets`
