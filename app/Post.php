@@ -14,8 +14,15 @@ class Post extends Model
 
     ];
 
-    public function users()
+    public $timestamps = false;
+
+    public function user()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 }

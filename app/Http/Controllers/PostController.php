@@ -26,8 +26,12 @@ class PostController extends Controller
         return $this->postService->createNewPost($request);
     }
 
-    public function update($id, Request $request){
-        return $this->postService->updatePost($id, $request);
+    public function updateAllDatas($id, Request $request){
+        return $this->postService->updateAllDatasPost($id, $request);
+    }
+
+    public function updateSingleData($id, Request $request){
+        return $this->postService->updateSingleDataPost($id, $request);
     }
 
     public function destroy($id){

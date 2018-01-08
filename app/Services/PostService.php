@@ -13,23 +13,28 @@ class PostService{
 
     public function createNewPost(Request $request){
         $post = $request->all();
-        Post::create($post);
-        return response()->json(['message' => 'post created'], 201);
+        $newPost = Post::create($post);
+        return response()->json([$newPost], 201);
     }
 
-    public function updatePost($id, Request $request){
+    public function updateAllDatasPost($id, Request $request){
         $post = Post::find($id);
         $data = $request->all();
         $post->userId = $data['userId'];
         $post->title = $data['title'];
         $post->body = $data['body'];
         $post->save();
-        return response()->json(['message' => 'post updated'], 200);
+        return response()->json([$post], 200);
+    }
+
+    public function updateSingleDataPost($id, Request $request){
+        $post = Post::find($id)->fill(request()->all()); 
+        $post->save();
+        return response()->json([$post], 200);
     }
 
     public function deletePost($id){
         $post = Post::find($id);
         $post->delete();
-        return response()->json(['message' => 'post deleted'], 204);
     }
 }
