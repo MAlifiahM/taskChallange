@@ -30,7 +30,13 @@ php artisan migrate
 
 ### Running and tests
 
-After migrate you must create the user data, and run
+After migrate you must run
+
+```
+php artisan serve
+```
+
+After that create the user data, and run
 
 ```
 php artisan passport:migrate --password
