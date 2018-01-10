@@ -15,7 +15,13 @@ git clone git@github.com:MAlifiahM/taskChallange.git
 
 ### Installing
 
-After cloning you must create a database, copy the code in .env.example to .env and change .env same with your database
+After cloning you must run
+
+```
+composer install
+```
+
+And create a database, copy the code in .env.example to .env and change .env same with your database
 
 ```
 DB_DATABASE= <Your database name>
